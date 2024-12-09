@@ -22,3 +22,28 @@
 
 #### 2.4.2. Get full bill by id
 <img src="captures/fullBill.png">
+
+## 3. Angular Client
+- a simple angular client to consume the microservices via the gateway and display the data in a user-friendly way.
+### 3.1. Home page (List of products)
+- its a simple page that displays the list of products with pagination and edit/delete actions. also it has an add product button to add a new product.
+<img src="captures/product-list.png">
+
+### 3.2. Add product page
+- a form to add a new product.
+<img src="captures/add-product.png">
+- the edit product page is the same page that permit to add product page but with the fields filled with the product data.
+<img src="captures/edit-product.png">
+
+### 3.3. List of customers
+- a simple page that displays the list of customers with pagination and edit/delete/show bills actions. also it has an add customer button to add a new customer.
+
+<img src="captures/customer-list.png">
+
+### 3.4. Customer bills
+- a page that displays the list of bills of a customer with pagination.
+<img src="captures/bill-list.png">
+
+## 3.5. Add customer page
+- a form to add a new customer.
+<img src="captures/add-customer.png">

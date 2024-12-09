@@ -1,0 +1,68 @@
+<div class="container mt-4">
+  <h2 class="mb-4 text-primary">Customer Bill Details</h2>
+
+  <div *ngIf="bills; else noData" class="card p-4 shadow-lg">
+    <table class="table table-hover table-responsive-md">
+      <thead class="thead-dark">
+      <tr>
+        <th>#</th>
+        <th>Billing Date</th>
+        <th>Customer</th>
+        <th>Total Amount ($)</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{ bills.id }}</td>
+        <td>{{ bills.billingDate | date: 'medium' }}</td>
+        <td>{{ bills.customer.name }}</td>
+        <td>{{ calculateTotalAmount() | currency: 'USD' }}</td>
+      </tr>
+      </tbody>
+    </table>
+
+    <h4 class="text-center text-secondary mt-4">Products</h4>
+
+    <div class="row g-3 mt-3 product-container position-relative">
+
+      <!-- Previous Button -->
+      <button
+        class="btn-icon prev-icon"
+        (click)="changePage(-1)"
+        [disabled]="currentPage === 0"
+      >
+        <i class="bi bi-chevron-left"></i>
+      </button>
+
+      <div
+        class="col-lg-4 col-md-6 mb-3"
+        *ngFor="let item of bills.productItems.slice(currentPage * pageSize, (currentPage + 1) * pageSize)"
+      >
+        <div class="card product-card h-100 shadow">
+          <div class="card-body text-center">
+            <h5 class="card-title text-primary">{{ item.product.name }}</h5>
+            <p class="text-dark">
+              Price: <strong>{{ item.price | currency: 'USD' }}</strong><br>
+              Qty: <strong>{{ item.quantity }}</strong><br>
+              Discount: <strong>{{ (item.discount * 100) | number: '1.2-2' }}%</strong><br>
+              Total: <strong>{{ item.price * item.quantity * (1 - item.discount) | currency: 'USD' }}</strong>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next Button -->
+      <button
+        class="btn-icon next-icon"
+        (click)="changePage(1)"
+        [disabled]="(currentPage + 1) * pageSize >= bills.productItems.length"
+      >
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <ng-template #noData>
+    <div class="alert alert-warning text-center">No bills available at the moment.</div>
+  </ng-template>
+</div>

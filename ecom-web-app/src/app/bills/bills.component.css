@@ -1,0 +1,75 @@
+/* Container Styling */
+.container {
+  max-width: 1200px;
+}
+
+/* Section Headers */
+h2, h4 {
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Product Cards */
+.product-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card {
+  background: #f8f9fa;
+  border: none;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.card-body p {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Navigation Buttons Inside Cards */
+.btn-icon {
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Left Button Inside First Card */
+.left-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+}
+
+/* Right Button Inside Last Card */
+.right-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+}
+
+.btn-icon:disabled {
+  background: #ccc;
+  color: white;
+  cursor: not-allowed;
+}
+
+.btn-outline-primary {
+  font-size: 1.5rem;
+  padding: 0;
+  background: #007bff;
+  color: white;
+  border: none;
+}
